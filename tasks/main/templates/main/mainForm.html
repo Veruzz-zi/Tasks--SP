@@ -1,16 +1,17 @@
-{% extends "base.html" %}
-{% block title %}<title>TASKS PRO | add to tasks</title>{% endblock %}
+{% extends "main/base.html" %}
+{% block title %}<title>TASKS PRO | Add to tasks</title>{% endblock %}
 {% block head %}
-    <link rel="stylesheet" href="">
+{% load static %}
+<!-- <link rel="stylesheet" href="{% static 'main/mainForm.css' %}"> -->
 {% endblock %}
 {% block content %}
 <div class="contain">
-    <h1 id="head">Add a new task</h1>
+    <h1>Add Tasks</h1>
     <form method="post">
         {% csrf_token %}
-        <input type="text" placeholder="Input your Task">
-        <button type="submit">Save</button>
+        {{ form }}
+        <input type="submit">
     </form>
 </div>
-<a href="{% url 'mainList' %}">Back to Tasks</a>
+<a href="{% url 'tasks:mainList' %}">Back to Tasks</a>
 {% endblock %}

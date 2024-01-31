@@ -1,21 +1,21 @@
-{% extends 'base.html' %}
+{% extends 'main/base.html' %}
 
 {% block title %}
 <title>TASKS PRO | View your saved tasks</title>
 {% endblock %}
 
 {% block head %}
-<link rel="stylesheet" href=""> 
+{% load static %}
+<!-- <link rel="stylesheet" href="{% static 'main/mainList.css' %}"> -->
 {% endblock %}
 
 {% block content %}
 <div class="contain">
-    <h1>Added Tasks</h1>
     <ul>
         {% for task in tasks %}
-        <li>{{ task.obj }}</li>
+        <li>{{ task }}</li>
         {% endfor %}
     </ul>
 </div>
-<a href="{% url 'mainForm' %}">Create New Tasks</a>
+<a href="{% url 'tasks:mainForm' %}">Create New Tasks</a>
 {% endblock %}
